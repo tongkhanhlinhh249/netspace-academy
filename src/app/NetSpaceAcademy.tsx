@@ -39,6 +39,10 @@ import { SEOHead } from "./components/SEOHead";
 import { useLanguage } from "./LanguageContext";
 import imgTuan from "../imports/Tuan-half-body.jpg";
 import imgThanh from "../imports/Thanh-half-body.jpg";
+import imgTuanAnh from "../imports/Le-Tuan-Anh.jpg";
+import imgLongKieu from "../imports/Long-Kieu.jpg";
+import imgHaiNam from "../imports/Hai-Nam.jpg";
+import imgAnhThu from "../imports/Mai-Anh-Thu.jpg";
 
 const TEAM_IMG =
   "https://cdn.netspace.vn/editor-assets/3/tap-the-du-hanh-vu-tru-2048x1152-g7idoeb9gar7.webp";
@@ -68,7 +72,7 @@ const SOCIAL_LINKS = [
 const HERO_COURSE_POS = [
   "sm:-left-2 sm:top-[4%]",
   "sm:-right-3 sm:top-[40%]",
-  "sm:-left-2 sm:bottom-[0%]",
+  "sm:left-5 sm:bottom-[0%]",
 ];
 const HERO_TASK_POS = [
   "sm:right-[4%] sm:top-[2%]",
@@ -427,7 +431,7 @@ function RegistrationForm() {
           <FieldError msg={errors.phone} />
         </div>
         <div>
-          <FieldLabel htmlFor="reg-email">{t("Email (không bắt buộc)", "Email (optional)")}</FieldLabel>
+          <FieldLabel htmlFor="reg-email">Email</FieldLabel>
           <input
             id="reg-email"
             type="email"
@@ -621,6 +625,7 @@ export function NetSpaceAcademy() {
       bar: "from-[#1EAAFF] to-[#6ADBE3]",
       image: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t("AI ỨNG DỤNG", "APPLIED AI"),
+      heroLines: [t("AI ỨNG DỤNG", "APPLIED AI")],
       tagline: t(
         "Bứt phá hiệu suất công việc & học tập với công cụ AI an toàn, kiểm chứng",
         "Boost work and study performance with safe, verified AI tools",
@@ -647,6 +652,7 @@ export function NetSpaceAcademy() {
       bar: "from-[#9462FB] to-[#F86880]",
       image: "https://images.pexels.com/photos/6593779/pexels-photo-6593779.jpeg?auto=compress&cs=tinysrgb&w=1080",
       title: t("SÁNG TẠO HÌNH ẢNH & VIDEO", "IMAGE & VIDEO CREATION"),
+      heroLines: [t("SÁNG TẠO HÌNH ẢNH", "IMAGE & VIDEO"), t("& VIDEO", "CREATION")],
       tagline: t(
         "Làm chủ tư duy thiết kế & sáng tạo video ngắn chuyên nghiệp",
         "Master design thinking and professional short-form video",
@@ -670,6 +676,7 @@ export function NetSpaceAcademy() {
       bar: "from-[#F86880] to-[#FAE096]",
       image: "https://images.pexels.com/photos/1708912/pexels-photo-1708912.jpeg?auto=compress&cs=tinysrgb&w=1080",
       title: t("PHÁT TRIỂN KỸ NĂNG CÁ NHÂN", "PERSONAL SKILLS DEVELOPMENT"),
+      heroLines: [t("PHÁT TRIỂN", "PERSONAL SKILLS"), t("KỸ NĂNG CÁ NHÂN", "DEVELOPMENT")],
       tagline: t(
         "Khẳng định vị thế - Làm chủ truyền thông – Biến uy tín cá nhân thành tài sản dài hạn",
         "Establish your standing, own your media presence, turn personal credibility into a lasting asset",
@@ -717,6 +724,7 @@ export function NetSpaceAcademy() {
     {
       name: t("Anh Long Kiều", "Mr. Long Kieu"),
       initials: "LK",
+      img: imgLongKieu,
       role: t("Giám đốc sáng tạo Khối MCN", "Creative Director, MCN Division"),
       bio: t(
         "Tốt nghiệp ĐH Sân khấu Điện ảnh Hà Nội, là đạo diễn đứng sau các show truyền hình nổi bật như Sao Nhập Ngũ, KOC Việt Nam 2022 và Sao Nhập Học.",
@@ -726,6 +734,7 @@ export function NetSpaceAcademy() {
     {
       name: t("Anh Lê Tuấn Anh", "Mr. Le Tuan Anh"),
       initials: "TA",
+      img: imgTuanAnh,
       role: t("Đạo diễn hình ảnh Khối MCN", "Director of Photography, MCN Division"),
       bio: t(
         "Sở hữu hơn 8 năm kinh nghiệm đạo diễn hình ảnh cho các thương hiệu lớn như Vinhomes, BIDV và Garena, anh có thế mạnh chuyên sâu về setup ánh sáng và điều phối góc máy.",
@@ -735,6 +744,7 @@ export function NetSpaceAcademy() {
     {
       name: t("Anh Hải Nam", "Mr. Hai Nam"),
       initials: "HN",
+      img: imgHaiNam,
       role: t("CEO MyB Media", "CEO, MyB Media"),
       bio: t(
         "Hơn 10 năm kinh nghiệm Digital Marketing. Đào tạo Facebook Ads, TikTok Ads, Content Marketing, xây kênh đa nền tảng và ứng dụng AI trong marketing & vận hành doanh nghiệp.",
@@ -744,6 +754,7 @@ export function NetSpaceAcademy() {
     {
       name: t("MC Mai Anh Thư", "MC Mai Anh Thu"),
       initials: "AT",
+      img: imgAnhThu,
       role: "",
       bio: t(
         "Thạc sĩ Luật quốc tế, Tiến sĩ Báo chí học. Hơn 10 năm kinh nghiệm làm MC song ngữ & hoạt động trong lĩnh vực báo chí, truyền hình.",
@@ -938,12 +949,16 @@ export function NetSpaceAcademy() {
                       onClick={() => document.getElementById(`course-group-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" })}
                       animate={{ y: [0, -6, 0] }}
                       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: i * 0.6 }}
-                      className={`cursor-pointer text-left bg-white/90 backdrop-blur-md border border-[#1EAAFF]/20 hover:border-[#1EAAFF]/60 rounded-2xl px-2.5 py-3 sm:px-4 sm:py-3.5 shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 sm:absolute sm:z-10 sm:pointer-events-auto sm:w-[184px] ${HERO_COURSE_POS[i]}`}
+                      className={`cursor-pointer text-left bg-white/90 backdrop-blur-md border border-[#1EAAFF]/20 hover:border-[#1EAAFF]/60 rounded-2xl px-2.5 py-3 sm:px-4 sm:py-3.5 shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 sm:absolute sm:z-10 sm:pointer-events-auto sm:w-max ${HERO_COURSE_POS[i]}`}
                     >
                       <span className={`w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-gradient-to-br ${g.bar} flex items-center justify-center text-white`}>
                         <g.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </span>
-                      <span className="text-[10px] sm:text-[12px] font-bold leading-[1.3] text-[#131313] uppercase">{g.title}</span>
+                      <span className="text-[10px] sm:text-[12px] font-bold leading-[1.3] text-[#131313] uppercase">
+                        {g.heroLines.map((line, k) => (
+                          <span key={k} className="block whitespace-nowrap">{line}</span>
+                        ))}
+                      </span>
                     </motion.button>
                   ))}
                 </div>
@@ -1281,7 +1296,7 @@ export function NetSpaceAcademy() {
                       <ul className="flex flex-col gap-1 list-none p-0 m-0 text-[15px] text-[#3F3F5A]">
                         <li>
                           <strong className="font-semibold text-[#131313]">{t("Hà Nội", "Hanoi")}:</strong>{" "}
-                          {t("Tầng 3, Tòa nhà Mipec, 229 Tây Sơn, Phường Kim Liên, Hà Nội", "3rd floor, Mipec Building, 229 Tay Son, Kim Lien Ward, Hanoi")}
+                          {t("Tòa nhà Mipec, 229 Tây Sơn, phường Kim Liên, Hà Nội", "Mipec Building, 229 Tay Son, Kim Lien Ward, Hanoi")}
                         </li>
                         <li>
                           <strong className="font-semibold text-[#131313]">{t("Hồ Chí Minh", "Ho Chi Minh City")}:</strong>{" "}
@@ -1324,7 +1339,7 @@ export function NetSpaceAcademy() {
         {/* Section 6: FAQ */}
         <section className="relative py-16 lg:py-24 overflow-clip bg-[linear-gradient(180deg,#FFFFFF_0%,#F6F1FF_100%)]">
           <div className="absolute top-[10%] left-[-6%] w-[420px] h-[420px] bg-[#1EAAFF] rounded-full blur-[150px] opacity-[0.07] pointer-events-none" />
-          <div className="relative z-10 max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+          <div className="relative z-10 max-w-[860px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
             <SectionHead
               title={
                 <>
@@ -1334,21 +1349,8 @@ export function NetSpaceAcademy() {
               }
             />
             <Reveal>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
-                {[
-                  { start: 0, items: faqs.slice(0, 3) },
-                  { start: 3, items: faqs.slice(3) },
-                ].map((col, c) => (
-                  <Accordion
-                    key={c}
-                    type="single"
-                    collapsible
-                    defaultValue={c === 0 ? "faq-0" : undefined}
-                    className="flex flex-col gap-4"
-                  >
-                {col.items.map((f, k) => {
-                  const i = col.start + k;
-                  return (
+              <Accordion type="single" collapsible defaultValue="faq-0" className="flex flex-col gap-4">
+                {faqs.map((f, i) => (
                   <AccordionItem
                     key={i}
                     value={`faq-${i}`}
@@ -1366,11 +1368,8 @@ export function NetSpaceAcademy() {
                       <p className="m-0 pb-5 pl-[34px]">{f.a}</p>
                     </AccordionContent>
                   </AccordionItem>
-                );
-                })}
-                  </Accordion>
                 ))}
-              </div>
+              </Accordion>
             </Reveal>
           </div>
         </section>
